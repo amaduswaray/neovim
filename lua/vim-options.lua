@@ -5,6 +5,9 @@ vim.cmd("set softtabstop=2")
 vim.cmd("set shiftwidth=2")
 vim.g.mapleader = " "
 
+-- Auto format:
+vim.g.autoformat = true
+
 local function augroup(name)
   return vim.api.nvim_create_augroup("amavim_" .. name, { clear = true })
 end
