@@ -10,7 +10,7 @@ return {
   },
   config = function()
     local cmp = require("cmp")
-    local luansip = require("luasnip")
+    local luasnip = require("luasnip")
 
     -- Loads snippet styles
     require("luasnip.loaders.from_vscode").lazy_load()
@@ -39,6 +39,7 @@ return {
       }),
       -- Sources for autocompletion
       sources = cmp.config.sources({
+        { name = "nvim_lsp" },
         { name = "luasnip"}, -- snippets
         { name = "buffer" }, -- text in the buffer
         { name = "path" }, -- file system paths
