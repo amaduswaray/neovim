@@ -5,6 +5,9 @@ vim.cmd("set softtabstop=2")
 vim.cmd("set shiftwidth=2")
 vim.g.mapleader = " "
 
+-- Set esc to exit term mode
+vim.keymap.set('t', '<Esc>', [[<C-\><C-n>]],{noremap=true})
+
 -- Auto format:
 vim.g.autoformat = true
 
@@ -82,7 +85,7 @@ vim.keymap.set('n', '<leader>l', ':Lazy<CR>')
 
 
 -- Activating lazygit
---vim.keymap.set('n', '<leader>gg', ':LazyGit<CR>')
+vim.keymap.set('n', '<leader>gg', ':LazyGit<CR>')
 
 -- better up/down
 vim.keymap.set({ "n", "x" }, "j", "v:count == 0 ? 'gj' : 'j'", { expr = true, silent = true })

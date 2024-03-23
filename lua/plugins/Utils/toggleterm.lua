@@ -14,11 +14,10 @@ return {
     },
   },
   config = function()
-    
     -- Setting up config
     require("toggleterm").setup({
       size = 20,
-      open_mapping = [[<c-7>]],
+      open_mapping = [[<c-\>]],
       hide_numbers = true,
       shade_filetypes = {},
       shade_terminals = true,
@@ -42,14 +41,17 @@ return {
       },
     })
 
---     vim.cmd("autocmd! TermOpen term://* lua set_terminal_keymaps()")
+    -- Keymaps when in the terminal
+    function _G.set_terminal_keymaps()
+      local opts = {buffer = 0}
+      vim.api.nvim_buf_set_keymap('t', '<esc>', [[<C-\><C-n>]], opts)
+    end
 
---     local Terminal = require("toggleterm.terminal").Terminal
---     local lazygit = Terminal:new({ cmd = "lazygit", hidden = true })
---     function _lazygit_toggle()
---       lazygit:toggle()
---     end
+    --vim.cmd("autocmd! TermOpen term://* lua set_terminal_keyaps()")
 
---     vim.api.nvim_set_keymap("n", "<leader>gg", "<cmd>lua _lazygit_toggle()<CR>", {noremap = true, silent = true}) local lazygit = Terminal:new({ cmd = "lazygit", hidden = true })
   end,
 }
+
+
+--To map <Esc> to exit terminal-mode: >vim
+--    :tnoremap <Esc> <C-\><C-n>
