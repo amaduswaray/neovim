@@ -40,18 +40,7 @@ return {
         },
       },
     })
-
-    -- Keymaps when in the terminal
-    function _G.set_terminal_keymaps()
-      local opts = {buffer = 0}
-      vim.api.nvim_buf_set_keymap('t', '<esc>', [[<C-\><C-n>]], opts)
-    end
-
-    --vim.cmd("autocmd! TermOpen term://* lua set_terminal_keyaps()")
-
   end,
 }
 
 
---To map <Esc> to exit terminal-mode: >vim
---    :tnoremap <Esc> <C-\><C-n>
