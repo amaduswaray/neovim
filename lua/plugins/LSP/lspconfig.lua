@@ -1,106 +1,116 @@
 return {
-  "neovim/nvim-lspconfig",
-  event = { "BufReadPre", "BufNewFile" },
-  dependencies = {
-    "hrsh7th/cmp-nvim-lsp",
-    {"antosha417/nvim-lsp-file-operations", config = true },
-  },
-  config = function()
-    local lspconfig = require("lspconfig")
+	"neovim/nvim-lspconfig",
+	event = { "BufReadPre", "BufNewFile" },
+	dependencies = {
+		"hrsh7th/cmp-nvim-lsp",
+		{ "antosha417/nvim-lsp-file-operations", config = true },
+	},
+	config = function()
+		local lspconfig = require("lspconfig")
 
-    local cmp_nvim_lsp = require("cmp_nvim_lsp")
-    
-    local opts = { noremap = true, silent = true }
+		local cmp_nvim_lsp = require("cmp_nvim_lsp")
 
-    local on_attach = function(client, bufnr)
-      opts.buffer = bufnr
+		local opts = { noremap = true, silent = true }
 
-      -- Setting keybings
-      
-      opts.desc = "Show LSP references"
-      vim.keymap.set("n", "gR", "<cmd>Telescope lsp_references<CR>", opts)
+		local on_attach = function(client, bufnr)
+			opts.buffer = bufnr
 
-      opts.desc = "Go to declaration"
-      vim.keymap.set("n", "gD", vim.lsp.buf.declaration, opts)
+			-- Disable LSP text
+			vim.lsp.handlers["textDocument/publishDiagnostics"] =
+				vim.lsp.with(vim.lsp.diagnostic.on_publish_diagnostics, {
+					-- disable virtual text
+					virtual_text = false,
 
-      opts.desc = "Show LSP definitions"
-      vim.keymap.set("n", "gd", "<cmd>Telescope lsp_definitions<CR>", opts)
+					-- show signs
+					signs = true,
 
-      opts.desc = "Show LSP implementations"
-      vim.keymap.set("n", "gi", "<cmd>Telescope lsp_implementations<CR>", opts)
+					-- delay update diagnostics
+					update_in_insert = false,
+				})
 
-      opts.desc = "Show LSP type definitions"
-      vim.keymap.set("n", "gt", "<cmd>Telescope lsp_type_definitions<CR>", opts)
+			-- Setting keybings
+			opts.desc = "Show LSP references"
+			vim.keymap.set("n", "gR", "<cmd>Telescope lsp_references<CR>", opts)
 
-      opts.desc = "See available code actions"
-      vim.keymap.set({ "n", "v" }, "<leader>ca", vim.lsp.buf.code_action, opts)
+			opts.desc = "Go to declaration"
+			vim.keymap.set("n", "gD", vim.lsp.buf.declaration, opts)
 
-      opts.desc = "Smart rename"
-      vim.keymap.set("n", "<leader>rn", vim.lsp.buf.rename, opts)
+			opts.desc = "Show LSP definitions"
+			vim.keymap.set("n", "gd", "<cmd>Telescope lsp_definitions<CR>", opts)
 
-      opts.desc = "Show buffer diagnostics"
-      vim.keymap.set("n", "<leader>D", "<cmd>Telescope diagnostics bufnr=0<CR>", opts)
+			opts.desc = "Show LSP implementations"
+			vim.keymap.set("n", "gi", "<cmd>Telescope lsp_implementations<CR>", opts)
 
-      opts.desc = "Show line diagnostics"
-      vim.keymap.set("n", "<leader>d", vim.diagnostic.open_float, opts)
+			opts.desc = "Show LSP type definitions"
+			vim.keymap.set("n", "gt", "<cmd>Telescope lsp_type_definitions<CR>", opts)
 
-      opts.desc = "Go to previous diagnostic"
-      vim.keymap.set("n", "ød", vim.diagnostic.goto_prev, opts)
+			opts.desc = "See available code actions"
+			vim.keymap.set({ "n", "v" }, "<leader>ca", vim.lsp.buf.code_action, opts)
 
-      opts.desc = "Go to next diagnostic"
-      vim.keymap.set("n", "æd", vim.diagnostic.goto_next, opts)
+			opts.desc = "Smart rename"
+			vim.keymap.set("n", "<leader>rn", vim.lsp.buf.rename, opts)
 
-      opts.desc = "Show documentation for what is under cursor"
-      vim.keymap.set("n", "K", vim.lsp.buf.hover, opts)
+			opts.desc = "Show buffer diagnostics"
+			vim.keymap.set("n", "<leader>D", "<cmd>Telescope diagnostics bufnr=0<CR>", opts)
 
-      opts.desc = "Restart LSP"
-      vim.keymap.set("n", "<leader>rs", ":LspRestart<CR>", opts)
-    end
+			opts.desc = "Show line diagnostics"
+			vim.keymap.set("n", "<leader>d", vim.diagnostic.open_float, opts)
 
-    -- LSP autocompletion
-    local capabilities = cmp_nvim_lsp.default_capabilities()
+			opts.desc = "Go to previous diagnostic"
+			vim.keymap.set("n", "ød", vim.diagnostic.goto_prev, opts)
 
-    local signs = { Error = " ", Warn = " ", Hint = " ", Info = " " }
-    for type, icon in pairs(signs) do
-      local hl = "DiagnosticSign" .. type
-      vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = ""})
-    end
+			opts.desc = "Go to next diagnostic"
+			vim.keymap.set("n", "æd", vim.diagnostic.goto_next, opts)
 
+			opts.desc = "Show documentation for what is under cursor"
+			vim.keymap.set("n", "K", vim.lsp.buf.hover, opts)
 
-    -- CONFIGURING THE SERVERS
+			opts.desc = "Restart LSP"
+			vim.keymap.set("n", "<leader>rs", ":LspRestart<CR>", opts)
+		end
 
-    -- TypeScript
-    lspconfig["tsserver"].setup({
-      capabilities = capabilities,
-      on_attach = on_attach,
-    })
+		-- LSP autocompletion
+		local capabilities = cmp_nvim_lsp.default_capabilities()
 
-    -- Rust
-    lspconfig["rust_analyzer"].setup({
-      capabilities = capabilities,
-      on_attach = on_attach,
-    })
+		local signs = { Error = " ", Warn = " ", Hint = " ", Info = " " }
+		for type, icon in pairs(signs) do
+			local hl = "DiagnosticSign" .. type
+			vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = "" })
+		end
 
-    -- Lua
-    lspconfig["lua_ls"].setup({
-      capabilities = capabilities,
-      on_attach = on_attach,
-      settings = { -- custom settings for lua
-        Lua = {
-          -- make the language server recognize "vim" global
-          diagnostics = {
-            globals = { "vim" },
-          },
-          workspace = {
-            -- make language server aware of runtime files
-            library = {
-              [vim.fn.expand("$VIMRUNTIME/lua")] = true,
-              [vim.fn.stdpath("config") .. "/lua"] = true,
-            },
-          },
-        },
-      },
-    })
+		-- CONFIGURING THE SERVERS
 
-  end,
+		-- TypeScript
+		lspconfig["tsserver"].setup({
+			capabilities = capabilities,
+			on_attach = on_attach,
+		})
+
+		-- Rust
+		lspconfig["rust_analyzer"].setup({
+			capabilities = capabilities,
+			on_attach = on_attach,
+		})
+
+		-- Lua
+		lspconfig["lua_ls"].setup({
+			capabilities = capabilities,
+			on_attach = on_attach,
+			settings = { -- custom settings for lua
+				Lua = {
+					-- make the language server recognize "vim" global
+					diagnostics = {
+						globals = { "vim" },
+					},
+					workspace = {
+						-- make language server aware of runtime files
+						library = {
+							[vim.fn.expand("$VIMRUNTIME/lua")] = true,
+							[vim.fn.stdpath("config") .. "/lua"] = true,
+						},
+					},
+				},
+			},
+		})
+	end,
 }
