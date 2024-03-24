@@ -49,11 +49,15 @@ return {
 						renamed = "󰁕", -- this can only be used in the git_status source
 						-- Status type
 						untracked = "",
-						ignored = "",
+						ignored = "◌",
 						unstaged = "!",
-						staged = "",
+						staged = "✓",
 						conflict = "",
 					},
+				},
+				window = {
+					position = "left",
+					width = 40,
 				},
 			},
 		})
