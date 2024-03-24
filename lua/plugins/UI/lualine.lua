@@ -15,7 +15,7 @@ return {
 			green = "#A6E3A1",
 			orange = "#FAB387",
 			grey = "#353442",
-			pink = "#F38BA8",
+			pink = "#FF6C93",
 		}
 
 		local amavim = {
@@ -49,7 +49,7 @@ return {
 
 		-- function for progress symbol
 		local function prog()
-			return [[ ]]
+			return [[ ]]
 		end
 
 		-- Funtion to get lsp
@@ -63,9 +63,6 @@ return {
 			for _, client in pairs(clients) do
 				local filetypes = client.config.filetypes
 				if filetypes and vim.fn.index(filetypes, buf_ft) ~= -1 then
-					if client.name == "null-ls" then
-						return msg
-					end
 					return client.name
 				end
 			end
