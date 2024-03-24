@@ -49,7 +49,7 @@ return {
 
 		-- function for progress symbol
 		local function prog()
-			return [[ ]]
+			return [[ ]]
 		end
 
 		-- Funtion to get lsp
