@@ -6,7 +6,16 @@ return {
 		"nvim-tree/nvim-web-devicons",
 		"MunifTanjim/nui.nvim",
 	},
+	keys = { {
+		"<leader>e",
+		"<cmd>Neotree toggle<cr>",
+		desc = "File Explorer - Toggle",
+	} },
+
 	config = function()
+		-- Local highlights for file
+		local git_highlihgts = ""
+
 		require("neo-tree").setup({
 			default_component_configs = {
 				container = {
@@ -20,9 +29,9 @@ return {
 					last_indent_marker = "└",
 					highlight = "NeoTreeIndentMarker",
 					with_expanders = true, -- if nil and file nesting is enabled, will enable expanders
-					expander_collapsed = "▹",
-					expander_expanded = "▿",
-					expander_highlight = "NeoTreeExpander",
+					expander_collapsed = "",
+					expander_expanded = "",
+					expander_highlight = "NeoTreeFileIcon",
 				},
 				icon = {
 					folder_closed = "",
@@ -57,11 +66,13 @@ return {
 				},
 				window = {
 					position = "left",
-					width = 40,
+					width = 30,
+					mapping_options = {
+						noremap = true,
+						nowait = true,
+					},
 				},
 			},
 		})
-		-- Keymaps
-		vim.keymap.set("n", "<leader>e", "<cmd>Neotree filesystem reveal left toggle<CR>")
 	end,
 }

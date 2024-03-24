@@ -15,7 +15,7 @@ return {
 			green = "#A6E3A1",
 			orange = "#FAB387",
 			grey = "#353442",
-			pink = "#FF6C93",
+			pink = "#F38BA8",
 		}
 
 		local amavim = {
@@ -94,7 +94,10 @@ return {
 					{ "filetype", colored = false, icon_only = true },
 				},
 
-				lualine_c = { "branch", "diagnostics" },
+				lualine_c = {
+					{ "branch", icon = "" },
+					{ "diagnostics" },
+				},
 
 				lualine_x = {
 					{ "diff", symbols = { added = "+", modified = "~", removed = "-" } },
