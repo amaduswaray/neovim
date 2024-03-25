@@ -8,6 +8,10 @@ vim.g.mapleader = " "
 -- Set esc to exit term mode
 vim.keymap.set("t", "<Esc><Esc>", [[<C-\><C-n>]], { noremap = true })
 
+-- Mapping ø and æ to []  and {} related bindings.
+vim.keymap.set("n", "Ø", [[{]], { noremap = true })
+vim.keymap.set("n", "Æ", [[}]], { noremap = true })
+
 -- Auto format:
 vim.g.autoformat = true
 
