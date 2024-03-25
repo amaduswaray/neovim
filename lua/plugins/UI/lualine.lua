@@ -91,10 +91,10 @@ return {
 						path = 4,
 						symbols = { modified = "", readonly = "󰈚", unnamed = "", newfile = "" },
 					},
-					{ "filetype", colored = false, icon_only = true },
 				},
 
 				lualine_c = {
+					{ "filetype", colored = true, icon_only = true },
 					{ "branch", icon = "" },
 					{ "diagnostics" },
 				},
