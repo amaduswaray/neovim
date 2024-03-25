@@ -24,6 +24,24 @@ The config takes a lot of inspiration from [LazyVim](https://nvchad.com/) and [N
 
 I would suggest using one of those distros if you are not comfortable maintaining your own nvim-config when it comes to updating packages, and handling errors and such:
 
+# How to Install
+
+Firtly, make sure that you have neovim installed on your machine.
+
+Neovim reads a config file in the path `$HOME:/.config/nvim`, so you can install this config by cloning this repo into `config/` directory:
+
+```Shell
+git clone https://github.com/amaduswaray/neovim.git
+```
+
+Then by renaming the folder to nvim:
+
+```Shell
+mv neovim nvim
+```
+
+Make sure to backup your existing config, if you have one.
+
 # Config
 
 **Folder Structure**
@@ -132,3 +150,4 @@ Here is a list of plugins that are included out of the box:
 - [ ] Refactor `lua/vim-option.lua` to multiple files
 - [ ] Update `README.md` with key-bindings section
 - [ ] Update `README.md` with plugin descriptions
+- [ ] Create a better installation guide
