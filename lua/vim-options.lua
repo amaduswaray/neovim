@@ -12,6 +12,9 @@ vim.keymap.set("t", "<Esc><Esc>", [[<C-\><C-n>]], { noremap = true })
 vim.keymap.set("n", "Ø", [[{]], { noremap = true })
 vim.keymap.set("n", "Æ", [[}]], { noremap = true })
 
+-- Set shift + u to redo:
+vim.keymap.set("n", "U", [[<C-r>]], { noremap = true })
+
 -- Auto format:
 vim.g.autoformat = true
 
