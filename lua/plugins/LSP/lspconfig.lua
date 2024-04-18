@@ -92,6 +92,13 @@ return {
 			on_attach = on_attach,
 		})
 
+		-- Elixir
+		lspconfig["elixirls"].setup({
+			cmd = { vim.fn.expand("/Users/amaduswaray/.local/share/nvim/mason/bin/elixir-ls") },
+			capabilities = capabilities,
+			on_attach = on_attach,
+		})
+
 		-- Lua
 		lspconfig["lua_ls"].setup({
 			capabilities = capabilities,
