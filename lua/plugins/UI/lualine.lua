@@ -15,7 +15,7 @@ return {
 			green = "#A6E3A1",
 			orange = "#FAB387",
 			grey = "#353442",
-			pink = "#F38BA8",
+			pink = "#F5C2E7",
 		}
 
 		local amavim = {
@@ -114,7 +114,7 @@ return {
 			},
 			winbar = {},
 			tabline = {},
-			extensions = { "lazy" },
+			extensions = { "lazy", "neo-tree" },
 		})
 	end,
 }
