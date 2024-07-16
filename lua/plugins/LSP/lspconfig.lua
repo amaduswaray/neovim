@@ -86,6 +86,18 @@ return {
 			on_attach = on_attach,
 		})
 
+		-- Prisma
+		lspconfig["prismals"].setup({
+			capabilities = capabilities,
+			on_attach = on_attach,
+		})
+
+		-- Tailwindcss
+		lspconfig["tailwindcss"].setup({
+			capabilities = capabilities,
+			on_attach = on_attach,
+		})
+
 		-- Rust
 		lspconfig["rust_analyzer"].setup({
 			capabilities = capabilities,
@@ -95,6 +107,12 @@ return {
 		-- Elixir
 		lspconfig["elixirls"].setup({
 			cmd = { vim.fn.expand("/Users/amaduswaray/.local/share/nvim/mason/bin/elixir-ls") },
+			capabilities = capabilities,
+			on_attach = on_attach,
+		})
+
+		-- Python
+		lspconfig["pyright"].setup({
 			capabilities = capabilities,
 			on_attach = on_attach,
 		})
