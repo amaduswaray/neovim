@@ -104,6 +104,15 @@ return {
 			on_attach = on_attach,
 		})
 
+		-- C++
+		lspconfig["clangd"].setup({
+			capabilities = capabilities,
+			on_attach = function(client, bufnr)
+				client.server_capabilities.signatureHelpProvider = false
+				on_attach(client, bufnr)
+			end,
+		})
+
 		-- Elixir
 		lspconfig["elixirls"].setup({
 			cmd = { vim.fn.expand("/Users/amaduswaray/.local/share/nvim/mason/bin/elixir-ls") },
