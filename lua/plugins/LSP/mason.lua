@@ -22,7 +22,7 @@ return {
 		mason_lspconfig.setup({
 			-- lust of servers that must be installed
 			ensure_installed = {
-				"tsserver",
+				"ts_ls",
 				"lua_ls",
 				"rust_analyzer",
 				"elixirls",
