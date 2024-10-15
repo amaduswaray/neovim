@@ -20,12 +20,13 @@ return {
 
 		-- setup LSPs
 		mason_lspconfig.setup({
-			-- lust of servers that must be installed
+			-- list of servers that must be installed
 			ensure_installed = {
 				"ts_ls",
 				"lua_ls",
 				"rust_analyzer",
 				"elixirls",
+				"gopls",
 			},
 
 			-- Auto install configured servers
