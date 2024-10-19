@@ -105,6 +105,13 @@ return {
 			on_attach = on_attach,
 		})
 
+		-- nix
+		lspconfig["rnix"].setup({
+			capabilities = capabilities,
+			on_attach = on_attach,
+			filetypes = { "nix" },
+		})
+
 		-- Golang
 		lspconfig["gopls"].setup({
 			capabilities = capabilities,

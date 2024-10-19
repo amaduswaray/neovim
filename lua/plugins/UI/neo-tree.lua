@@ -74,5 +74,10 @@ return {
 				},
 			},
 		})
+
+		vim.cmd([[
+      hi NeoTreeNormal guibg=#000
+      hi NeoTreeNormalNC guibg=#000
+    ]])
 	end,
 }

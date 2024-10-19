@@ -76,7 +76,7 @@ return {
 				section_separators = { left = "", right = " " },
 				globalstatus = true,
 				disabled_filetypes = {
-					statusline = { "dashboard", "alpha", "starter" },
+					statusline = { "dashboard", "alpha", "starter", "neo-tree" },
 				},
 			},
 			sections = {
@@ -114,7 +114,7 @@ return {
 			},
 			winbar = {},
 			tabline = {},
-			extensions = { "lazy", "neo-tree" },
+			extensions = { "lazy" },
 		})
 	end,
 }
