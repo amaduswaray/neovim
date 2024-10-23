@@ -27,6 +27,7 @@ return {
 				"rust_analyzer",
 				"elixirls",
 				"gopls",
+				"marksman",
 			},
 
 			-- Auto install configured servers

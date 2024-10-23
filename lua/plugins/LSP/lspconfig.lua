@@ -93,6 +93,13 @@ return {
 			on_attach = on_attach,
 		})
 
+		-- Marksman
+		lspconfig["marksman"].setup({
+			capabilities = capabilities,
+			on_attach = on_attach,
+			-- filetypes = { "md" },
+		})
+
 		-- Tailwindcss
 		lspconfig["tailwindcss"].setup({
 			capabilities = capabilities,
