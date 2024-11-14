@@ -32,7 +32,7 @@ return {
 			template = "Templates/Daily.md",
 		},
 		templates = {
-			foler = "Templates",
+			folder = "Templates",
 			date_format = "%Y-%m-%d",
 			time_format = "%H:%M",
 		},
