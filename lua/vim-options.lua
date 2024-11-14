@@ -18,6 +18,9 @@ vim.keymap.set("n", "U", [[<C-r>]], { noremap = true })
 -- Auto format:
 vim.g.autoformat = true
 
+-- Vim markdown disable obsidian frontmatter formatter
+vim.g.vim_markdown_frontmatter = 0
+
 local function augroup(name)
 	return vim.api.nvim_create_augroup("amavim_" .. name, { clear = true })
 end

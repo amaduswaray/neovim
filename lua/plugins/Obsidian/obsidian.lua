@@ -7,7 +7,6 @@ return {
 			"<leader>cd",
 			"<cmd>ObsidianToday<cr>",
 			desc = "Obsidian Daily Note Today",
-			-- icon = { icon = "󰍲", color = "oeange" },
 		},
 		{ "<leader>ct", "<cmd>ObsidianTemplate<cr>", desc = "Obsidian Insert Template" },
 	},
@@ -47,6 +46,7 @@ return {
 			},
 		},
 		-- Remove the metadata formatting from the plugin
+		disable_frontmatter = true,
 		---@return table
 		note_frontmatter_func = function(note)
 			local out = {}
