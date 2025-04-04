@@ -128,6 +128,17 @@ return {
 			filetypes = { "nix" },
 		})
 
+		-- Swift
+		lspconfig["sourcekit"].setup({
+			capabilities = capabilities,
+			on_attach = on_attach,
+			root_dir = function(filename, _)
+				return util.root_pattern("buildServer.json")(filename)
+					or util.root_pattern("*.xcodeproj", "*.xcworkspace")(filename)
+					or util.find_git_ancestor(filename)
+					or util.root_pattern("Package.swift")(filename)
+			end,
+		})
 		-- Golang
 		lspconfig["gopls"].setup({
 			capabilities = capabilities,
