@@ -5,7 +5,7 @@ return {
 		config = function()
 			local config = require("nvim-treesitter.configs")
 			config.setup({
-				ensure_installed = { "markdown_inline" },
+				ensure_installed = { "markdown_inline", "blade" },
 				auto_install = true,
 				highlight = { enable = true },
 				indent = { enable = true },

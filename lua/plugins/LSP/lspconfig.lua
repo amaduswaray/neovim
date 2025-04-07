@@ -87,6 +87,12 @@ return {
 			on_attach = on_attach,
 		})
 
+		-- PHP
+		lspconfig["intelephense"].setup({
+			capabilities = capabilities,
+			on_attach = on_attach,
+		})
+
 		-- Prisma
 		lspconfig["prismals"].setup({
 			capabilities = capabilities,
