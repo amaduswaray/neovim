@@ -16,34 +16,35 @@ return {
 			orange = "#FAB387",
 			grey = "#353442",
 			pink = "#F5C2E7",
+			transparant = "#1E1E2F",
 		}
 
 		local amavim = {
 			normal = {
-				a = { fg = colors.black, bg = colors.pink },
+				a = { fg = colors.black, bg = colors.pink, gui = "bold" },
 				b = { fg = colors.white, bg = colors.grey },
-				c = { fg = colors.white },
+				c = { fg = colors.white, bg = colors.transparant },
 			},
 			command = {
-				a = { fg = colors.black, bg = colors.orange },
+				a = { fg = colors.black, bg = colors.orange, gui = "bold" },
 				b = { fg = colors.white, bg = colors.grey },
-				c = { fg = colors.white },
+				c = { fg = colors.white, bg = colors.transparant },
 			},
 
 			terminal = {
-				a = { fg = colors.black, bg = colors.violet },
+				a = { fg = colors.black, bg = colors.violet, gui = "bold" },
 				b = { fg = colors.white, bg = colors.grey },
-				c = { fg = colors.white },
+				c = { fg = colors.white, bg = colors.transparant },
 			},
 
-			insert = { a = { fg = colors.black, bg = colors.green } },
-			visual = { a = { fg = colors.black, bg = colors.blue } },
-			replace = { a = { fg = colors.black, bg = colors.red } },
+			insert = { a = { fg = colors.black, bg = colors.green, gui = "bold" } },
+			visual = { a = { fg = colors.black, bg = colors.blue, gui = "bold" } },
+			replace = { a = { fg = colors.black, bg = colors.red, gui = "bold" } },
 
 			inactive = {
 				a = { fg = colors.white, bg = colors.black },
 				b = { fg = colors.white, bg = colors.black },
-				c = { fg = colors.white },
+				c = { fg = colors.white, bg = colors.transparant },
 			},
 		}
 
@@ -56,7 +57,7 @@ return {
 		local function lsp()
 			local msg = "NONE"
 			local buf_ft = vim.api.nvim_buf_get_option(0, "filetype")
-			local clients = vim.lsp.get_active_clients()
+			local clients = vim.lsp.get_clients()
 			if next(clients) == nil then
 				return msg
 			end
@@ -76,7 +77,7 @@ return {
 				section_separators = { left = "", right = " " },
 				globalstatus = true,
 				disabled_filetypes = {
-					statusline = { "dashboard", "alpha", "starter", "neo-tree" },
+					statusline = { "dashboard", "alpha", "starter" },
 				},
 			},
 			sections = {
