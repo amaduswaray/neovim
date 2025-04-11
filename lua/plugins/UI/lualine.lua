@@ -50,7 +50,7 @@ return {
 
 		-- function for progress symbol
 		local function prog()
-			return [[ ]]
+			return [[]]
 		end
 
 		-- Funtion to get lsp
@@ -103,6 +103,7 @@ return {
 				lualine_x = {
 					{ "diff", symbols = { added = "+", modified = "~", removed = "-" } },
 					{ lsp, icon = "  LSP ~" },
+					{ "location" },
 				},
 
 				lualine_y = {
