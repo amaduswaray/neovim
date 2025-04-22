@@ -112,6 +112,13 @@ return {
 			on_attach = on_attach,
 		})
 
+		-- Angularls
+		lspconfig["angularls"].setup({
+			capabilities = capabilities,
+			on_attach = on_attach,
+			filetypes = { "typescript", "html", "typescriptreact", "typescript.tsx", "htmlangular" },
+		})
+
 		-- Rust
 		lspconfig["rust_analyzer"].setup({
 			capabilities = capabilities,
