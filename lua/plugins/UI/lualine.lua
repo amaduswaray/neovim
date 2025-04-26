@@ -74,6 +74,7 @@ return {
 			options = {
 				theme = amavim,
 				component_separators = "",
+				-- section_separators = { left = "█", right = " " },
 				section_separators = { left = "", right = " " },
 				globalstatus = true,
 				disabled_filetypes = {
@@ -81,6 +82,7 @@ return {
 				},
 			},
 			sections = {
+				-- lualine_a = { { "mode", separator = { left = "█" }, right_padding = 2, icon = "" } },
 				lualine_a = { { "mode", separator = { left = "" }, right_padding = 2, icon = "" } },
 
 				lualine_b = {
@@ -107,10 +109,12 @@ return {
 				},
 
 				lualine_y = {
+					-- { prog, padding = { left = 0, right = 1 }, separator = { left = "█" } },
 					{ prog, padding = { left = 0, right = 1 }, separator = { left = "" } },
 				},
 
 				lualine_z = {
+					-- { "progress", separator = { right = "█" }, padding = { left = 1, right = 1 } },
 					{ "progress", separator = { right = "" }, padding = { left = 1, right = 1 } },
 				},
 			},
