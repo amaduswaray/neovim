@@ -12,8 +12,8 @@ return {
 	},
 	-- ft = "markdown", -- Activate this and remove event if you want the plugin to apply to all md files
 	event = {
-		"BufReadPre /Users/amaduswaray/Library/Mobile Documents/iCloud~md~obsidian/Documents/UiO/*.md",
-		"BufNewFile /Users/amaduswaray/Library/Mobile Documents/iCloud~md~obsidian/Documents/UiO/*.md",
+		"BufReadPre ~/Library/Mobile Documents/iCloud~md~obsidian/Documents/UiO/*.md",
+		"BufNewFile ~/Library/Mobile Documents/iCloud~md~obsidian/Documents/UiO/*.md",
 	},
 	dependencies = {
 		-- Required.
@@ -23,7 +23,7 @@ return {
 		workspaces = {
 			{
 				name = "UiO",
-				path = "/Users/amaduswaray/Library/Mobile Documents/iCloud~md~obsidian/Documents/UiO",
+				path = "~/Library/Mobile Documents/iCloud~md~obsidian/Documents/UiO",
 			},
 		},
 		daily_notes = {
