@@ -94,10 +94,10 @@ return {
 		})
 
 		-- Prisma
-		lspconfig["prismals"].setup({
+		--[[ lspconfig["prismals"].setup({
 			capabilities = capabilities,
 			on_attach = on_attach,
-		})
+		}) ]]
 
 		-- Marksman
 		lspconfig["marksman"].setup({
@@ -112,12 +112,6 @@ return {
 			on_attach = on_attach,
 		})
 
-		-- Angularls
-		lspconfig["angularls"].setup({
-			capabilities = capabilities,
-			on_attach = on_attach,
-			filetypes = { "typescript", "html", "typescriptreact", "typescript.tsx", "htmlangular" },
-		})
 
 		-- Rust
 		lspconfig["rust_analyzer"].setup({
@@ -152,6 +146,7 @@ return {
 					or util.root_pattern("Package.swift")(filename)
 			end,
 		})
+
 		-- Golang
 		lspconfig["gopls"].setup({
 			capabilities = capabilities,
@@ -176,18 +171,18 @@ return {
 		})
 
 		-- Elixir
-		lspconfig["elixirls"].setup({
+		--[[ lspconfig["elixirls"].setup({
 			cmd = { vim.fn.expand("/Users/amaduswaray/.local/share/nvim/mason/bin/elixir-ls") },
 			capabilities = capabilities,
 			on_attach = on_attach,
-		})
+		}) ]]
 
 		-- Python
-		lspconfig["pyright"].setup({
+		--[[ lspconfig["pyright"].setup({
 			capabilities = capabilities,
 			on_attach = on_attach,
 		})
-
+]]
 		-- Lua
 		lspconfig["lua_ls"].setup({
 			capabilities = capabilities,
