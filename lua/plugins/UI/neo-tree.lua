@@ -18,7 +18,7 @@ return {
 		{
 			"<leader>fE",
 			function()
-				require("neo-tree.command").execute({ toggle = true, dir = vim.uv.cwd() })
+				require("neo-tree.command").execute({ toggle = true, dir = vim.fn.getcwd() })
 			end,
 			desc = "Explorer NeoTree (cwd)",
 		},

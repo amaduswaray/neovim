@@ -31,6 +31,7 @@ return {
 						-- text = "Neo-tree",
 						highlight = "Directory",
 						text_align = "left",
+						-- separator = true,
 					},
 				},
 				style_preset = {

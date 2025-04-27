@@ -6,7 +6,7 @@ return {
 		{ "antosha417/nvim-lsp-file-operations", config = true },
 	},
 	config = function()
-		local lspconfig = require("lspconfig")
+		-- local lspconfig = require("lspconfig")
 		local util = require("lspconfig/util")
 
 		local cmp_nvim_lsp = require("cmp_nvim_lsp")
@@ -17,7 +17,7 @@ return {
 			opts.buffer = bufnr
 
 			-- Disable LSP text
-			vim.lsp.handlers["textDocument/publishDiagnostics"] =
+			--[[ vim.lsp.handlers["textDocument/publishDiagnostics"] =
 				vim.lsp.with(vim.lsp.diagnostic.on_publish_diagnostics, {
 					-- disable virtual text
 					virtual_text = false,
@@ -27,7 +27,7 @@ return {
 
 					-- delay update diagnostics
 					update_in_insert = false,
-				})
+				}) ]]
 
 			-- Setting keybings
 			opts.desc = "Show LSP references"
@@ -82,13 +82,15 @@ return {
 		-- CONFIGURING THE SERVERS
 
 		-- TypeScript
-		lspconfig["ts_ls"].setup({
+		vim.lsp.enable("ts_ls")
+		vim.lsp.config("ts_ls", {
 			capabilities = capabilities,
 			on_attach = on_attach,
 		})
 
 		-- PHP
-		lspconfig["intelephense"].setup({
+		vim.lsp.enable("intelephense")
+		vim.lsp.config("intelephense", {
 			capabilities = capabilities,
 			on_attach = on_attach,
 		})
@@ -100,21 +102,23 @@ return {
 		}) ]]
 
 		-- Marksman
-		lspconfig["marksman"].setup({
+		vim.lsp.enable("marksman")
+		vim.lsp.config("marksman", {
 			capabilities = capabilities,
 			on_attach = on_attach,
 			-- filetypes = { "md" },
 		})
 
 		-- Tailwindcss
-		lspconfig["tailwindcss"].setup({
+		vim.lsp.enable("tailwindcss")
+		vim.lsp.config("tailwindcss", {
 			capabilities = capabilities,
 			on_attach = on_attach,
 		})
 
-
 		-- Rust
-		lspconfig["rust_analyzer"].setup({
+		vim.lsp.enable("rust_analyzer")
+		vim.lsp.config("rust_analyzer", {
 			capabilities = capabilities,
 			on_attach = on_attach,
 			filetypes = { "rust" },
@@ -129,14 +133,16 @@ return {
 		})
 
 		-- nix
-		lspconfig["rnix"].setup({
+		vim.lsp.enable("rnix")
+		vim.lsp.config("rnix", {
 			capabilities = capabilities,
 			on_attach = on_attach,
 			filetypes = { "nix" },
 		})
 
 		-- Swift
-		lspconfig["sourcekit"].setup({
+		vim.lsp.enable("sourcekit")
+		vim.lsp.config("sourcekit", {
 			capabilities = capabilities,
 			on_attach = on_attach,
 			root_dir = function(filename, _)
@@ -148,7 +154,8 @@ return {
 		})
 
 		-- Golang
-		lspconfig["gopls"].setup({
+		vim.lsp.enable("gopls")
+		vim.lsp.config("gopls", {
 			capabilities = capabilities,
 			on_attach = on_attach,
 			cmd = { "gopls" },
@@ -162,7 +169,8 @@ return {
 		})
 
 		-- C++
-		lspconfig["clangd"].setup({
+		vim.lsp.enable("clangd")
+		vim.lsp.config("clangd", {
 			capabilities = capabilities,
 			on_attach = function(client, bufnr)
 				client.server_capabilities.signatureHelpProvider = false
@@ -184,7 +192,8 @@ return {
 		})
 ]]
 		-- Lua
-		lspconfig["lua_ls"].setup({
+		vim.lsp.enable("lua_ls")
+		vim.lsp.config("lua_ls", {
 			capabilities = capabilities,
 			on_attach = on_attach,
 			settings = { -- custom settings for lua
