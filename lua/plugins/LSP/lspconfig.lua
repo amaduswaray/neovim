@@ -58,7 +58,7 @@ return {
 			vim.keymap.set("n", "<leader>d", vim.diagnostic.open_float, opts)
 
 			opts.desc = "Go to previous diagnostic"
-			vim.keymap.set("n", "[d", vim.diagnostic.goto_prev, opts)
+			vim.keymap.set("n", "[d", vim.diagnostic.goto_prev, opts) -- Depricated, .jump() is the new func
 
 			opts.desc = "Go to next diagnostic"
 			vim.keymap.set("n", "]d", vim.diagnostic.goto_next, opts)
@@ -122,7 +122,7 @@ return {
 			capabilities = capabilities,
 			on_attach = on_attach,
 			filetypes = { "rust" },
-			root_dir = util.root_pattern("Cargo.toml"),
+			-- root_dir = util.root_pattern("Cargo.toml"),
 			settings = {
 				["rust-analyzer"] = {
 					cargo = {
