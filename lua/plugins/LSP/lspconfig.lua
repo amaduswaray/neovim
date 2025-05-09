@@ -17,17 +17,17 @@ return {
 			opts.buffer = bufnr
 
 			-- Disable LSP text
-			--[[ vim.lsp.handlers["textDocument/publishDiagnostics"] =
+			vim.lsp.handlers["textDocument/publishDiagnostics"] =
 				vim.lsp.with(vim.lsp.diagnostic.on_publish_diagnostics, {
 					-- disable virtual text
-					virtual_text = false,
+					virtual_text = true,
 
 					-- show signs
 					signs = true,
 
 					-- delay update diagnostics
 					update_in_insert = false,
-				}) ]]
+				})
 
 			-- Setting keybings
 			opts.desc = "Show LSP references"
@@ -171,6 +171,17 @@ return {
 		-- C++
 		vim.lsp.enable("clangd")
 		vim.lsp.config("clangd", {
+			capabilities = capabilities,
+			on_attach = on_attach,
+			--[[ on_attach = function(client, bufnr)
+				client.server_capabilities.signatureHelpProvider = false
+				on_attach(client, bufnr)
+			end, ]]
+		})
+
+		-- Zig++
+		vim.lsp.enable("zls")
+		vim.lsp.config("zls", {
 			capabilities = capabilities,
 			on_attach = function(client, bufnr)
 				client.server_capabilities.signatureHelpProvider = false

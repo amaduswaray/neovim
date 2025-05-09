@@ -17,7 +17,10 @@ return {
 			local builtin = require("telescope.builtin")
 			vim.keymap.set("n", "<leader>ff", builtin.find_files, { desc = "Find File", remap = false })
 			vim.keymap.set("n", "<leader>fg", builtin.live_grep, { desc = "Find Text", remap = false })
+			vim.keymap.set("n", "<leader>fb", builtin.buffers, { desc = "Find Buffers", remap = false })
 			vim.keymap.set("n", "<leader>fr", builtin.oldfiles, { desc = "Recent Files", remap = false })
+			vim.keymap.set("n", "<leader>fd", builtin.diagnostics, { desc = "Recent Diagnostics", remap = false })
+			vim.keymap.set("n", "<leader>gs", builtin.git_status, { desc = "Git Status", remap = false })
 
 			require("telescope").load_extension("ui-select")
 		end,
