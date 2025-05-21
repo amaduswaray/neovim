@@ -28,6 +28,11 @@ return {
 				"elixirls",
 				"gopls",
 				"marksman",
+				"intelephense",
+				"tailwindcss",
+				"rnix",
+				"clangd",
+				"zls",
 			},
 
 			-- Auto install configured servers
