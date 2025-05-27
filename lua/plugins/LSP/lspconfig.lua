@@ -95,18 +95,11 @@ return {
 			on_attach = on_attach,
 		})
 
-		-- Prisma
-		--[[ lspconfig["prismals"].setup({
-			capabilities = capabilities,
-			on_attach = on_attach,
-		}) ]]
-
 		-- Marksman
 		vim.lsp.enable("marksman")
 		vim.lsp.config("marksman", {
 			capabilities = capabilities,
 			on_attach = on_attach,
-			-- filetypes = { "md" },
 		})
 
 		-- Tailwindcss
@@ -122,7 +115,6 @@ return {
 			capabilities = capabilities,
 			on_attach = on_attach,
 			filetypes = { "rust" },
-			-- root_dir = util.root_pattern("Cargo.toml"),
 			settings = {
 				["rust-analyzer"] = {
 					cargo = {
@@ -173,10 +165,6 @@ return {
 		vim.lsp.config("clangd", {
 			capabilities = capabilities,
 			on_attach = on_attach,
-			--[[ on_attach = function(client, bufnr)
-				client.server_capabilities.signatureHelpProvider = false
-				on_attach(client, bufnr)
-			end, ]]
 		})
 
 		-- Zig++
@@ -189,19 +177,6 @@ return {
 			end,
 		})
 
-		-- Elixir
-		--[[ lspconfig["elixirls"].setup({
-			cmd = { vim.fn.expand("/Users/amaduswaray/.local/share/nvim/mason/bin/elixir-ls") },
-			capabilities = capabilities,
-			on_attach = on_attach,
-		}) ]]
-
-		-- Python
-		--[[ lspconfig["pyright"].setup({
-			capabilities = capabilities,
-			on_attach = on_attach,
-		})
-]]
 		-- Lua
 		vim.lsp.enable("lua_ls")
 		vim.lsp.config("lua_ls", {

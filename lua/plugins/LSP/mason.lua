@@ -25,7 +25,6 @@ return {
 				"ts_ls",
 				"lua_ls",
 				"rust_analyzer",
-				"elixirls",
 				"gopls",
 				"marksman",
 				"intelephense",

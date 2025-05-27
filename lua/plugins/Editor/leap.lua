@@ -4,9 +4,9 @@ return {
 		require("leap").create_default_mappings()
 
 		-- Suggested keymaps to ovveride s
-		vim.keymap.set({ "n", "x", "o" }, "s", "<Plug>(leap-forward)")
-		vim.keymap.set({ "n", "x", "o" }, "S", "<Plug>(leap-backward)")
-		vim.keymap.set({ "n", "x", "o" }, "gs", "<Plug>(leap-from-window)")
+		vim.keymap.set({ "n", "x", "o" }, "<leader>s", "<Plug>(leap-forward)")
+		vim.keymap.set({ "n", "x", "o" }, "<leader>S", "<Plug>(leap-backward)")
+		vim.keymap.set({ "n", "x", "o" }, "<leader>gs", "<Plug>(leap-from-window)")
 
 		-- Hide the (real) cursor when leaping, and restore it afterwards.
 		vim.api.nvim_create_autocmd("User", {
