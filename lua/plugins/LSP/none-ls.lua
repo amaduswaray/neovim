@@ -15,6 +15,7 @@ return {
 				null_ls.builtins.formatting.golines,
 				null_ls.builtins.formatting.swiftlint,
 				null_ls.builtins.formatting.pint,
+				null_ls.builtins.formatting.blade_formatter,
 				null_ls.builtins.formatting.clang_format,
 			},
 
